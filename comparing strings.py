@@ -6,8 +6,14 @@ def compare_characters(i,string_1,string_2):
     length_string_1 = len(string_1)
     length_string_2 = len(string_2)
     if length_string_2 > length_string_1:
-        # while i <= length_string_2:
-        print("two")
+        while i <= length_string_2:
+            if string_1[i] == string_2[i]:
+                i =i + 1
+                return compare_characters(i,string_1,string_2)
+            elif string_1[i] != string_2[i]:
+                print(string_1[:i-1] + Red +string_1[i:] +END)
+                print(string_2[:i-1] + Red +string_2[i:] +END)
+                i = length_string_2 + 5
     elif length_string_1 > length_string_2:
         while i <= length_string_1:
             if string_1[i] == string_2[i]:
@@ -16,11 +22,9 @@ def compare_characters(i,string_1,string_2):
             elif string_1[i] != string_2[i]:
                 print(string_1[:i-1] + Red +string_1[i:] +END)
                 print(string_2[:i-1] + Red +string_2[i:] +END)
-                i = length_string_1
-            else:
-                print (Green + "string are the same"+ END)
+                i = length_string_1 + 5
     else:
-        print("3")
+        print (Green + "string are the same"+ END)
 
 def compare_length(string_1,string_2):
     length_string_1 = len(string_1)
@@ -37,13 +41,9 @@ def compare_length(string_1,string_2):
         print(Red + "Strings are not the same length" + END)
         compare_characters(i,string_1,string_2)
 
-
-
-
-
 # string_1 = (str(input("Enter first string:\n")))
 # string_2 = (str(input("Enter second string:\n")))
 string_1 = "string_1dc"
-string_2 = "string_2d"
+string_2 = "string_2dc"
 
 compare_length(string_1,string_2)
